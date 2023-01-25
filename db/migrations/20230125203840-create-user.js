@@ -9,6 +9,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropAllEnums(USER_TABLE);
+    await queryInterface.dropTable(USER_TABLE);
   }
 };
