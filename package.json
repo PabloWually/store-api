@@ -4,7 +4,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:undo",
+    "migrations:delete": "sequelize-cli db:undo:all"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +16,8 @@
   "description": "",
   "devDependencies": {
     "faker": "^5.5.3",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "sequelize-cli": "^6.6.0"
   },
   "dependencies": {
     "@hapi/boom": "^9.1.4",
@@ -20,6 +25,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "joi": "^17.7.0",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelizer": "^1.1.4"
   }
 }
