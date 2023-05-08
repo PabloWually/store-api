@@ -6,7 +6,7 @@ class UserService{
 	constructor() {}
 
 	async create(data){
-		const hash = await bcrypt.hash('data.password', 10);
+		const hash = await bcrypt.hash(data.password, 10);
 		const rta = await models.User.create({
 			...data,
 			password: hash
@@ -36,10 +36,13 @@ class UserService{
 		const user = await models.User.findOne({
 			where: { email }
 		});
-		if (!user) {
-      throw boom.notFound('user not found');
-    }
 		return user;
+	}
+
+	async updateUser(id, data){
+		const user = await models.User.findByPk(id);
+		const rta = await user.update(data);
+		return rta;
 	}
 }
 

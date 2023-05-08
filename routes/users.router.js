@@ -39,4 +39,18 @@ router.get('/:id',
 	}
 });
 
+router.patch('/:id',
+	validatorHandler(getUserSchema, 'params'),
+	validatorHandler(updateUserSchema, 'body'),
+	async (req, res, next) => {
+		try {
+			const { id } = req.params;
+			const data = req.body;
+			const rta = await service.updateUser(id, data);
+			res.status(201).json(rta);
+		} catch (error) {
+			next(error);	
+		}
+	});
+
 module.exports = router

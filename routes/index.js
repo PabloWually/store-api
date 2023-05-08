@@ -19,4 +19,4 @@ function routerApi(app) {
 	router.use('/profile', profileRouter);
 }
 
-module.exports = routerApi
+module.exports = routerApi;
