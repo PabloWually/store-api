@@ -221,3 +221,4 @@ postgres_data
 
 #test files
 auth-test/
+db/migrations/*

@@ -2,10 +2,11 @@ const express = require('express');
 const routerApi = require('./routes');
 const cors = require('cors')
 const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/error.handler.js');
-const { checkApiKey } = require('./middlewares/auth.handler')
+const { checkApiKey } = require('./middlewares/auth.handler');
+const { config } = require('./config/config');
 
 const app = express();
-const port = 3000;
+const port = config.port || 3000;
 
 app.use(express.json());
 
